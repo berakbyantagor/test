@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY NAD!!1</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #333;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+        }
+        h1 {
+            color: #ff6347;
+            z-index: 1;
+            position: relative;
+        }
+        .falling-text {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 24px;
+            color: #ff6347;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>happy birthday :3</h1>
+    <script>
+        const texts = [
+            "🎉", "🎂", "💖", "✨", "🥳", "🎈", "HAPPY", "BIRTHDAY", ":3"
+        ];
+        function createFallingText() {
+            const text = texts[Math.floor(Math.random() * texts.length)];
+            const span = document.createElement('span');
+            span.className = 'falling-text';
+            span.textContent = text;
+            span.style.left = Math.random() * 100 + 'vw';
+            span.style.animationDuration = (2 + Math.random() * 2) + 's';
+            document.body.appendChild(span);
+            span.addEventListener('animationend', () => {
+                span.remove();
+            });
+        }
+        setInterval(createFallingText, 200);
+    </script>
+
+    <footer>
+        <p>yeah i just made it btw</p>
+</body>
+</html>
